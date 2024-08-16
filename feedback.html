@@ -1,773 +1,858 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Feedback Form</title>
-        <style>
-            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Josefin+Sans:wght@700&display=swap");
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Josefin+Sans:wght@700&display=swap");
 
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-            body {
-                font-family: "Poppins", sans-serif;
-                background-image: url("img/govern1.jpg");
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 100vh;
-                position: relative;
-                overflow: hidden;
-                box-shadow: inset 0px 0px 400px rgba(0, 0, 0, 1);
-            }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-image: url("img/govern1.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+        box-shadow: inset 0px 0px 400px rgba(0, 0, 0, 1);
+      }
 
-            body::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.5);
-                backdrop-filter: blur(6px);
-                z-index: -1;
-            }
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(6px);
+        z-index: -1;
+      }
 
-            .feedback-container {
-                padding: 1rem;
-                background-color: rgba(255, 255, 255, 0.7);
-                border-radius: 20px;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-                width: 90%;
-                max-width: 1000px;
-                height: 90vh;
-                display: flex;
-                flex-direction: column;
-                overflow: hidden;
-                animation: fadeIn 0.5s ease-out;
-                transition: all 0.3s ease;
-            }
+      .feedback-container {
+        padding: 1rem;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 1000px;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        animation: fadeIn 0.5s ease-out;
+        transition: all 0.3s ease;
+      }
 
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-            .feedback-header {
-                background-color: #10141b;
-                color: #faf6f0;
-                padding: 25px;
-                text-align: center;
-                border: 2px solid #10141b;
-                border-radius: 6px;
-                box-shadow: 10px 10px 10px grey;
-            }
+      .feedback-header {
+        background-color: #10141b;
+        color: #faf6f0;
+        padding: 25px;
+        text-align: center;
+        border: 2px solid #10141b;
+        border-radius: 6px;
+        box-shadow: 10px 10px 10px grey;
+      }
 
-            .feedback-header h2 {
-                font-family: "Josefin Sans", sans-serif;
-                font-size: 32px;
-                margin: 0;
-                letter-spacing: 1px;
-                text-transform: uppercase;
-            }
+      .feedback-header h2 {
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 32px;
+        margin: 0;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
 
-            .feedback-content {
-                flex: 1;
-                overflow-y: auto;
-                padding: 30px;
-            }
+      .feedback-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 30px;
+      }
 
-            .feedback-container label {
-                display: block;
-                margin: 15px 0 5px;
-                font-weight: 600;
-                color: #333;
-                transition: color 0.3s ease;
-            }
+      .feedback-container label {
+        display: block;
+        margin: 15px 0 5px;
+        font-weight: 600;
+        color: #333;
+        transition: color 0.3s ease;
+      }
 
-            .feedback-container input,
-            .feedback-container select,
-            .feedback-container textarea {
-                width: 100%;
-                padding: 12px;
-                margin-bottom: 20px;
-                border: 1.5px solid #363636;
-                border-radius: 8px;
-                font-size: 16px;
-                transition: all 0.3s ease;
-                background-color: rgba(255, 255, 255, 0.8);
-            }
+      .feedback-container input,
+      .feedback-container select,
+      .feedback-container textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1.5px solid #363636;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background-color: rgba(255, 255, 255, 0.8);
+      }
 
-            .feedback-container input:focus,
-            .feedback-container select:focus,
-            .feedback-container textarea:focus {
-                outline: none;
-                border-color: #9ab87a;
-                box-shadow: 0 0 10px rgba(154, 184, 122, 0.3);
-                transform: translateY(-2px);
-            }
+      .feedback-container input:focus,
+      .feedback-container select:focus,
+      .feedback-container textarea:focus {
+        outline: none;
+        border-color: #9ab87a;
+        box-shadow: 0 0 10px rgba(154, 184, 122, 0.3);
+        transform: translateY(-2px);
+      }
 
-            .feedback-container button {
-                background-color: #10141b;
-                color: #faf6f0;
-                padding: 12px 24px;
-                border: none;
-                border-radius: 8px;
-                cursor: pointer;
-                font-family: "Poppins", sans-serif;
-                font-size: 16px;
-                font-weight: 600;
-                transition: all 0.3s ease;
-                position: relative;
-                overflow: hidden;
-            }
+      .feedback-container button {
+        background-color: #10141b;
+        color: #faf6f0;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
 
-            .feedback-container button:hover {
-                background-color: #9ab87a;
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(154, 184, 122, 0.4);
-            }
+      .feedback-container button:hover {
+        background-color: #9ab87a;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(154, 184, 122, 0.4);
+      }
 
-            .feedback-container button::after {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 5px;
-                height: 5px;
-                background: rgba(255, 255, 255, 0.5);
-                opacity: 0;
-                border-radius: 100%;
-                transform: scale(1, 1) translate(-50%);
-                transform-origin: 50% 50%;
-            }
+      .feedback-container button::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+      }
 
-            .feedback-container button:focus:not(:active)::after {
-                animation: ripple 1s ease-out;
-            }
+      .feedback-container button:focus:not(:active)::after {
+        animation: ripple 1s ease-out;
+      }
 
-            @keyframes ripple {
-                0% {
-                    transform: scale(0, 0);
-                    opacity: 1;
-                }
-                20% {
-                    transform: scale(25, 25);
-                    opacity: 1;
-                }
-                100% {
-                    opacity: 0;
-                    transform: scale(40, 40);
-                }
-            }
+      @keyframes ripple {
+        0% {
+          transform: scale(0, 0);
+          opacity: 1;
+        }
+        20% {
+          transform: scale(25, 25);
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: scale(40, 40);
+        }
+      }
 
-            .hidden {
-                display: none;
-            }
+      .hidden {
+        display: none;
+      }
 
-            .error {
-                border-color: #ff4136 !important;
-                animation: shake 0.5s linear;
-            }
+      .error {
+        border-color: #ff4136 !important;
+        animation: shake 0.5s linear;
+      }
 
-            @keyframes shake {
-                8%,
-                41% {
-                    transform: translateX(-10px);
-                }
-                25%,
-                58% {
-                    transform: translateX(10px);
-                }
-                75% {
-                    transform: translateX(-5px);
-                }
-                92% {
-                    transform: translateX(5px);
-                }
-                0%,
-                100% {
-                    transform: translateX(0);
-                }
-            }
+      @keyframes shake {
+        8%,
+        41% {
+          transform: translateX(-10px);
+        }
+        25%,
+        58% {
+          transform: translateX(10px);
+        }
+        75% {
+          transform: translateX(-5px);
+        }
+        92% {
+          transform: translateX(5px);
+        }
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+      }
 
-            /* Custom scrollbar */
-            .feedback-content::-webkit-scrollbar {
-                width: 10px;
-            }
+      /* Custom scrollbar */
+      .feedback-content::-webkit-scrollbar {
+        width: 10px;
+      }
 
-            .feedback-content::-webkit-scrollbar-track {
-                background: #f1f1f1;
-                border-radius: 10px;
-            }
+      .feedback-content::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
 
-            .feedback-content::-webkit-scrollbar-thumb {
-                background: #888;
-                border-radius: 10px;
-            }
+      .feedback-content::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
 
-            .feedback-content::-webkit-scrollbar-thumb:hover {
-                background: #555;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="feedback-container">
-            <div class="feedback-header">
-                <h2>Feedback Form</h2>
-            </div>
-            <form id="feedbackForm">
-                <!-- Page 1 -->
-                <div id="page1">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required />
+      .feedback-content::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="feedback-container">
+      <div class="feedback-header">
+        <h2>Feedback Form</h2>
+      </div>
+      <form id="feedbackForm">
+        <!-- Page 1 -->
+        <div id="page1">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
 
-                    <label for="rollNumber">Roll Number</label>
-                    <input
-                        type="text"
-                        id="rollNumber"
-                        name="rollNumber"
-                        required
-                    />
+          <label for="rollNumber">Roll Number</label>
+          <input type="text" id="rollNumber" name="rollNumber" required />
 
-                    <label for="mobileNumber">Mobile Number</label>
-                    <input
-                        type="text"
-                        id="mobileNumber"
-                        name="mobileNumber"
-                        required
-                    />
+          <label for="mobileNumber">Mobile Number</label>
+          <input type="text" id="mobileNumber" name="mobileNumber" required />
 
-                    <label for="facility">Facility</label>
-                    <select
-                        id="facility"
-                        name="facility"
-                        required
-                        onchange="handleFacilityChange()"
-                    >
-                        <option value="">Select...</option>
-                        <option value="Infrastructure">Infrastructure</option>
-                        <option value="Hospital">Hospital</option>
-                        <option value="Transportation">Transportation</option>
-                        <option value="Eatery">Eatery (Campus Cafe)</option>
-                        <option value="Security">Security</option>
-                        <option value="Other">Other</option>
-                    </select>
+          <label for="facility">Facility</label>
+          <select
+            id="facility"
+            name="facility"
+            required
+            onchange="handleFacilityChange()"
+          >
+            <option value="">Select...</option>
+            <option value="Infrastructure">Infrastructure</option>
+            <option value="Hospital">Hospital</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Eatery">Eatery (Campus Cafe)</option>
+            <option value="Security">Security</option>
+            <option value="Other">Other</option>
+          </select>
 
-                    <!-- <button type="button" onclick="showNext()">Next</button> -->
-                </div>
-
-                <!-- Infrastructure Page -->
-                <div id="pageInfrastructure" class="hidden">
-                    <h2>Infrastructure Feedback</h2>
-                    <label for="infraFeedback"
-                        >Your feedback is regarding</label
-                    >
-                    <select id="infraFeedback" name="infraFeedback" required>
-                        <option value="">Select...</option>
-                        <option value="Quark">Quark</option>
-                        <option value="Ellora">Ellora</option>
-                        <option value="Road Side Amenities">
-                            Road Side Amenities
-                        </option>
-                        <option value="Open Sitting Spaces/Lawn">
-                            Open Sitting Spaces/Lawn
-                        </option>
-                        <option value="Other">Other</option>
-                    </select>
-
-                    <label for="infraDetails"
-                        >Please provide your feedback in detail</label
-                    >
-                    <textarea
-                        id="infraDetails"
-                        name="infraDetails"
-                        rows="4"
-                        required
-                    ></textarea>
-
-                    <label for="infraSupporting"
-                        >Please write any supporting info, if applicable</label
-                    >
-                    <textarea
-                        id="infraSupporting"
-                        name="infraSupporting"
-                        rows="4"
-                    ></textarea>
-
-                    <button
-                        type="button"
-                        onclick="validateAndShowNext('pageInfrastructure')"
-                    >
-                        Next
-                    </button>
-                </div>
-
-                <!-- Hospital Page -->
-                <div id="pageHospital" class="hidden">
-                    <h2>Hospital Feedback</h2>
-                    <label for="hospitalFeedback"
-                        >Your feedback is regarding</label
-                    >
-                    <select
-                        id="hospitalFeedback"
-                        name="hospitalFeedback"
-                        required
-                    >
-                        <option value="">Select...</option>
-                        <option value="Availability of Doctors">
-                            Availability of Doctors
-                        </option>
-                        <option value="Ambulance Service">
-                            Ambulance Service
-                        </option>
-                        <option value="Pharmacy">Pharmacy</option>
-                        <option value="Laboratory">Laboratory</option>
-                        <option value="Other">Other</option>
-                    </select>
-
-                    <label for="hospitalDetails"
-                        >Please provide your feedback in detail</label
-                    >
-                    <textarea
-                        id="hospitalDetails"
-                        name="hospitalDetails"
-                        rows="4"
-                        required
-                    ></textarea>
-
-                    <label for="hospitalSupporting"
-                        >Please write any supporting info, if applicable</label
-                    >
-                    <textarea
-                        id="hospitalSupporting"
-                        name="hospitalSupporting"
-                        rows="4"
-                    ></textarea>
-
-                    <button
-                        type="button"
-                        onclick="validateAndShowNext('pageHospital')"
-                    >
-                        Next
-                    </button>
-                </div>
-
-                <!-- Transportation Page -->
-                <div id="pageTransportation" class="hidden">
-                    <h2>Transportation Feedback</h2>
-                    <label for="transportationFeedback"
-                        >Your feedback is regarding</label
-                    >
-                    <select
-                        id="transportationFeedback"
-                        name="transportationFeedback"
-                        required
-                    >
-                        <option value="">Select...</option>
-                        <option value="Bus/Ekart Route">Bus/Ekart Route</option>
-                        <option value="Bus/Ekart Timing">
-                            Bus/Ekart Timing
-                        </option>
-                        <option value="Rash Driving">Rash Driving</option>
-                        <option value="Other">Other</option>
-                    </select>
-
-                    <label for="transportationDetails"
-                        >Please provide your feedback in detail</label
-                    >
-                    <textarea
-                        id="transportationDetails"
-                        name="transportationDetails"
-                        rows="4"
-                        required
-                    ></textarea>
-
-                    <label for="transportationSupporting"
-                        >Please write any supporting info, if applicable</label
-                    >
-                    <textarea
-                        id="transportationSupporting"
-                        name="transportationSupporting"
-                        rows="4"
-                    ></textarea>
-
-                    <button
-                        type="button"
-                        onclick="validateAndShowNext('pageTransportation')"
-                    >
-                        Next
-                    </button>
-                </div>
-
-                <!-- Eatery Page -->
-                <div id="pageEatery" class="hidden">
-                    <h2>Eatery Feedback</h2>
-                    <label for="eateryFeedback"
-                        >Your feedback is regarding</label
-                    >
-                    <select id="eateryFeedback" name="eateryFeedback" required>
-                        <option value="">Select...</option>
-                        <option value="Vajara Canteen (ground floor)">
-                            Vajara Canteen (ground floor)
-                        </option>
-                        <option value="Bachelor's Restaurant">
-                            Bachelor's Restaurant
-                        </option>
-                        <option value="Sre Bakya Fast Food">
-                            Sre Bakya Fast Food
-                        </option>
-                        <option value="R.K Foods">R.K Foods</option>
-                        <option value="Indian Coffee House">
-                            Indian Coffee House
-                        </option>
-                        <option value="Campus Cafe Amenities">
-                            Campus Cafe Amenities
-                        </option>
-                        <option value="Other">Other</option>
-                    </select>
-
-                    <label for="eateryDetails"
-                        >Please provide your feedback in detail</label
-                    >
-                    <textarea
-                        id="eateryDetails"
-                        name="eateryDetails"
-                        rows="4"
-                        required
-                    ></textarea>
-
-                    <label for="eaterySupporting"
-                        >Please write any supporting info, if applicable</label
-                    >
-                    <textarea
-                        id="eaterySupporting"
-                        name="eaterySupporting"
-                        rows="4"
-                    ></textarea>
-
-                    <button
-                        type="button"
-                        onclick="validateAndShowNext('pageEatery')"
-                    >
-                        Next
-                    </button>
-                </div>
-
-                <!-- Security Page -->
-                <div id="pageSecurity" class="hidden">
-                    <h2>Security Feedback</h2>
-                    <label for="securityFeedback"
-                        >Your feedback is regarding</label
-                    >
-                    <select
-                        id="securityFeedback"
-                        name="securityFeedback"
-                        required
-                    >
-                        <option value="">Select...</option>
-                        <option value="IITM Security Gates">
-                            IITM Security Gates
-                        </option>
-                        <option value="Hostel Security">Hostel Security</option>
-                        <option value="Other">Other</option>
-                    </select>
-
-                    <label for="securityDetails"
-                        >Please provide your feedback in detail</label
-                    >
-                    <textarea
-                        id="securityDetails"
-                        name="securityDetails"
-                        rows="4"
-                        required
-                    ></textarea>
-
-                    <label for="securitySupporting"
-                        >Please write any supporting info, if applicable</label
-                    >
-                    <textarea
-                        id="securitySupporting"
-                        name="securitySupporting"
-                        rows="4"
-                    ></textarea>
-
-                    <button
-                        type="button"
-                        onclick="validateAndShowNext('pageSecurity')"
-                    >
-                        Next
-                    </button>
-                </div>
-
-                <!-- Other Page -->
-                <div id="pageOther" class="hidden">
-                    <h2>Other Feedback</h2>
-                    <label for="otherDetails"
-                        >Please provide your feedback in detail</label
-                    >
-                    <textarea
-                        id="otherDetails"
-                        name="otherDetails"
-                        rows="4"
-                        required
-                    ></textarea>
-
-                    <label for="otherSupporting"
-                        >Please write any supporting info, if applicable</label
-                    >
-                    <textarea
-                        id="otherSupporting"
-                        name="otherSupporting"
-                        rows="4"
-                    ></textarea>
-
-                    <button
-                        type="button"
-                        onclick="validateAndShowNext('pageOther')"
-                    >
-                        Next
-                    </button>
-                </div>
-
-                <!-- Submit Page -->
-                <div id="submitPage" class="hidden">
-                    <h2>Additional Feedback</h2>
-                    <label for="additionalFeedback"
-                        >Please provide additional feedback</label
-                    >
-                    <textarea
-                        id="additionalFeedback"
-                        name="additionalFeedback"
-                        rows="4"
-                        required
-                    ></textarea>
-
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
+          <!-- <button type="button" onclick="showNext()">Next</button> -->
         </div>
 
-        <script>
-            let currentPage = "page1";
-            const filledPages = new Set();
+        <!-- Infrastructure Page -->
+        <div id="pageInfrastructure" class="hidden">
+          <h2>Infrastructure Feedback</h2>
+          <label for="infraFeedback">Your feedback is regarding</label>
+          <select id="infraFeedback" name="infraFeedback">
+            <option value="">Select...</option>
+            <option value="Quark">Quark</option>
+            <option value="Ellora">Ellora</option>
+            <option value="Road Side Amenities">Road Side Amenities</option>
+            <option value="Open Sitting Spaces/Lawn">
+              Open Sitting Spaces/Lawn
+            </option>
+            <option value="Other">Other</option>
+          </select>
 
-            function showPage(pageId) {
-                document
-                    .querySelectorAll(".feedback-container > div")
-                    .forEach((page) => page.classList.add("hidden"));
-                document.getElementById(pageId).classList.remove("hidden");
+          <label for="infraDetails"
+            >Please provide your feedback in detail</label
+          >
+          <textarea id="infraDetails" name="infraDetails" rows="4"></textarea>
+
+          <label for="infraSupporting">Please attach any supporting info</label>
+          <input type="file" id="infraSupporting" name="infraSupporting" />
+
+          <button
+            type="button"
+            onclick="validateAndShowNext('pageInfrastructure')"
+          >
+            Next
+          </button>
+          <button type="button" onclick="submitThisForm('pageInfrastructure')">
+            Submit This Form
+          </button>
+        </div>
+
+        <!-- Hospital Page -->
+        <div id="pageHospital" class="hidden">
+          <h2>Hospital Feedback</h2>
+          <label for="hospitalFeedback">Your feedback is regarding</label>
+          <select id="hospitalFeedback" name="hospitalFeedback">
+            <option value="">Select...</option>
+            <option value="Availability of Doctors">
+              Availability of Doctors
+            </option>
+            <option value="Ambulance Service">Ambulance Service</option>
+            <option value="Pharmacy">Pharmacy</option>
+            <option value="Laboratory">Laboratory</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="hospitalDetails"
+            >Please provide your feedback in detail</label
+          >
+          <textarea
+            id="hospitalDetails"
+            name="hospitalDetails"
+            rows="4"
+          ></textarea>
+
+          <label for="hospitalSupporting"
+            >Please attach any supporting info</label
+          >
+          <input
+            type="file"
+            id="hospitalSupporting"
+            name="hospitalSupporting"
+          />
+
+          <button type="button" onclick="validateAndShowNext('pageHospital')">
+            Next
+          </button>
+          <button type="button" onclick="submitThisForm('pageHospital')">
+            Submit on Hospital Feedback
+          </button>
+        </div>
+
+        <!-- Transportation Page -->
+        <div id="pageTransportation" class="hidden">
+          <h2>Transportation Feedback</h2>
+          <label for="transportationFeedback">Your feedback is regarding</label>
+          <select id="transportationFeedback" name="transportationFeedback">
+            <option value="">Select...</option>
+            <option value="Bus/Ekart Route">Bus/Ekart Route</option>
+            <option value="Bus/Ekart Timing">Bus/Ekart Timing</option>
+            <option value="Rash Driving">Rash Driving</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="transportationDetails"
+            >Please provide your feedback in detail</label
+          >
+          <textarea
+            id="transportationDetails"
+            name="transportationDetails"
+            rows="4"
+          ></textarea>
+
+          <label for="transportationSupporting"
+            >Please attach any supporting info</label
+          >
+          <input
+            type="file"
+            id="transportationSupporting"
+            name="transportationSupporting"
+          />
+
+          <button
+            type="button"
+            onclick="validateAndShowNext('pageTransportation')"
+          >
+            Next
+          </button>
+          <button type="button" onclick="submitThisForm('pageTransportation')">
+            Submit only Transportation Feedback
+          </button>
+        </div>
+
+        <!-- Eatery Page -->
+        <div id="pageEatery" class="hidden">
+          <h2>Eatery Feedback</h2>
+          <label for="eateryFeedback">Your feedback is regarding</label>
+          <select id="eateryFeedback" name="eateryFeedback">
+            <option value="">Select...</option>
+            <option value="Vajara Canteen (ground floor)">
+              Vajara Canteen (ground floor)
+            </option>
+            <option value="Bachelor's Restaurant">Bachelor's Restaurant</option>
+            <option value="Sre Bakya Fast Food">Sre Bakya Fast Food</option>
+            <option value="R.K Foods">R.K Foods</option>
+            <option value="Indian Coffee House">Indian Coffee House</option>
+            <option value="Campus Cafe Amenities">Campus Cafe Amenities</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="eateryDetails"
+            >Please provide your feedback in detail</label
+          >
+          <textarea id="eateryDetails" name="eateryDetails" rows="4"></textarea>
+          <label for="eaterySupporting"
+            >Please attach any supporting info</label
+          >
+          <input type="file" id="eaterySupporting" name="eaterySupporting" />
+
+          <button type="button" onclick="validateAndShowNext('pageEatery')">
+            Next
+          </button>
+          <button type="button" onclick="submitThisForm('pageEatery')">
+            Submit only Eatery Feedback
+          </button>
+        </div>
+
+        <!-- Security Page -->
+        <div id="pageSecurity" class="hidden">
+          <h2>Security Feedback</h2>
+          <label for="securityFeedback">Your feedback is regarding</label>
+          <select id="securityFeedback" name="securityFeedback">
+            <option value="">Select...</option>
+            <option value="IITM Security Gates">IITM Security Gates</option>
+            <option value="Hostel Security">Hostel Security</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="securityDetails"
+            >Please provide your feedback in detail</label
+          >
+          <textarea
+            id="securityDetails"
+            name="securityDetails"
+            rows="4"
+          ></textarea>
+
+          <label for="securitySupporting"
+            >Please attach any supporting info</label
+          >
+          <input
+            type="file"
+            id="securitySupporting"
+            name="securitySupporting"
+          />
+
+          <button type="button" onclick="validateAndShowNext('pageSecurity')">
+            Next
+          </button>
+          <button type="button" onclick="submitThisForm('pageSecurity')">
+            Submit only Security Feedback
+          </button>
+        </div>
+
+        <!-- Other Page -->
+        <div id="pageOther" class="hidden">
+          <h2>Other Feedback</h2>
+          <label for="otherDetails"
+            >Please provide your feedback in detail</label
+          >
+          <textarea id="otherDetails" name="otherDetails" rows="4"></textarea>
+
+          <label for="otherSupporting">Please attach any supporting info</label>
+          <input type="file" id="otherSupporting" name="otherSupporting" />
+
+          <button type="button" onclick="showNextOther()">Next</button>
+        </div>
+
+        <!-- Submit Page -->
+        <div id="submitPage" class="hidden">
+          <h2>Additional Feedback</h2>
+          <label for="additionalFeedback"
+            >Please provide additional feedback</label
+          >
+          <textarea
+            id="additionalFeedback"
+            name="additionalFeedback"
+            rows="4"
+          ></textarea>
+
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      let patialSelect = false;
+      let currentPage = "page1";
+      const filledPages = new Set();
+
+      function showPage(pageId) {
+        document
+          .querySelectorAll(".feedback-container > div")
+          .forEach((page) => page.classList.add("hidden"));
+        document.getElementById(pageId).classList.remove("hidden");
+      }
+
+      function handleFacilityChange() {
+        const facility = document.getElementById("facility").value;
+
+        // First, validate the root page fields
+        const rootPageInputs = document.querySelectorAll(
+          "#page1 input[required], #page1 select[required]"
+        );
+        let allRootFieldsFilled = true;
+        let firstEmptyField = null;
+
+        rootPageInputs.forEach((input) => {
+          if (!input.value.trim()) {
+            allRootFieldsFilled = false;
+            if (!firstEmptyField) {
+              firstEmptyField = input;
             }
+            input.classList.add("error");
+          } else {
+            input.classList.remove("error");
+          }
+        });
 
-            function handleFacilityChange() {
-                const facility = document.getElementById("facility").value;
+        if (!allRootFieldsFilled) {
+          alert(
+            "Please fill out all required fields on the first page before selecting a facility."
+          );
+          if (firstEmptyField) {
+            firstEmptyField.focus();
+          }
+          // Reset the facility dropdown
+          document.getElementById("facility").value = "";
+          return;
+        }
 
-                // First, validate the root page fields
-                const rootPageInputs = document.querySelectorAll(
-                    "#page1 input[required], #page1 select[required]",
-                );
-                let allRootFieldsFilled = true;
-                let firstEmptyField = null;
+        const pages = [
+          "page1",
+          "pageInfrastructure",
+          "pageHospital",
+          "pageTransportation",
+          "pageEatery",
+          "pageSecurity",
+          "pageOther",
+        ];
 
-                rootPageInputs.forEach((input) => {
-                    if (!input.value.trim()) {
-                        allRootFieldsFilled = false;
-                        if (!firstEmptyField) {
-                            firstEmptyField = input;
-                        }
-                        input.classList.add("error");
-                    } else {
-                        input.classList.remove("error");
-                    }
-                });
+        pages.forEach((pageId) => {
+          document.getElementById(pageId).classList.add("hidden");
+        });
 
-                if (!allRootFieldsFilled) {
-                    alert(
-                        "Please fill out all required fields on the first page before selecting a facility.",
+        filledPages.clear();
+        filledPages.add("page1");
+
+        switch (facility) {
+          case "Infrastructure":
+            showPage("pageInfrastructure");
+            break;
+          case "Hospital":
+            showPage("pageHospital");
+            break;
+          case "Transportation":
+            showPage("pageTransportation");
+            break;
+          case "Eatery":
+            showPage("pageEatery");
+            break;
+          case "Security":
+            showPage("pageSecurity");
+            break;
+          case "Other":
+            showPage("pageOther");
+            break;
+          default:
+            showPage("page1");
+        }
+      }
+      function validateAndShowNext(pageId) {
+        const page = document.getElementById(pageId);
+        const requiredInputs = page.querySelectorAll(
+          "input[required], select[required], textarea[required]"
+        );
+        let allFilled = true;
+        let firstEmptyField = null;
+
+        requiredInputs.forEach((input) => {
+          if (!input.value.trim()) {
+            allFilled = false;
+            if (!firstEmptyField) {
+              firstEmptyField = input;
+            }
+            input.classList.add("error");
+          } else {
+            input.classList.remove("error");
+          }
+        });
+
+        if (allFilled) {
+          filledPages.add(pageId);
+          currentPage = pageId;
+          showNext();
+        } else {
+          alert("Please fill out all required fields.");
+          if (firstEmptyField) {
+            firstEmptyField.focus();
+          }
+        }
+      }
+      function submitThisForm(pageId) {
+        const page = document.getElementById(pageId);
+        const requiredInputs = page.querySelectorAll(
+          "input[required], select[required], textarea[required]"
+        );
+        let allFilled = true;
+        let firstEmptyField = null;
+
+        requiredInputs.forEach((input) => {
+          if (!input.value.trim()) {
+            allFilled = false;
+            if (!firstEmptyField) {
+              firstEmptyField = input;
+            }
+            input.classList.add("error");
+          } else {
+            input.classList.remove("error");
+          }
+        });
+
+        if (allFilled) {
+          filledPages.add(pageId);
+          currentPage = pageId;
+          //  showNext();
+          showOtherAndFillNull();
+        } else {
+          alert("Please fill out all required fields.");
+          if (firstEmptyField) {
+            firstEmptyField.focus();
+          }
+        }
+      }
+      function showOtherAndFillNull() {
+        patialSelect = true;
+        const pages = [
+          "page1",
+          "pageInfrastructure",
+          "pageHospital",
+          "pageTransportation",
+          "pageEatery",
+          "pageSecurity",
+        ];
+
+        // Fill all unfilled required fields with "-"
+        pages.forEach((pageId) => {
+          if (!filledPages.has(pageId)) {
+            const page = document.getElementById(pageId);
+            const inputs = page.querySelectorAll(
+              "input[required], textarea[required], select[required]"
+            );
+
+            inputs.forEach((input) => {
+              if (!input.value) {
+                input.value = "-";
+              }
+            });
+          }
+        });
+
+        // Hide all pages except "pageOther"
+        pages.forEach((pageId) => {
+          document.getElementById(pageId).classList.add("hidden");
+        });
+
+        // Show "pageOther"
+        const pageOther = document.getElementById("pageOther");
+        if (pageOther) {
+          pageOther.classList.remove("hidden");
+          currentPage = "pageOther";
+        } else {
+          console.error("pageOther not found.");
+        }
+
+        filledPages.add("pageOther");
+      }
+      function showNextOther() {
+        if (patialSelect == true) {
+          gotoAdditional();
+          return;
+        } else {
+          validateAndShowNext("pageOther");
+        }
+      }
+      function gotoAdditional() {
+        const pages = [
+          "page1",
+          "pageInfrastructure",
+          "pageHospital",
+          "pageTransportation",
+          "pageEatery",
+          "pageSecurity",
+          "pageOther",
+        ];
+
+        let nextPage;
+
+        for (let i = 0; i < pages.length; i++) {
+          if (!filledPages.has(pages[i])) {
+            nextPage = pages[i];
+            break;
+          }
+        }
+
+        pages.forEach((pageId) => {
+          document.getElementById(pageId).classList.add("hidden");
+        });
+
+        document.getElementById("submitPage").classList.remove("hidden");
+        document.querySelectorAll('button[type="button"]').forEach((button) => {
+          button.onclick = function () {
+            const pageId = this.closest('div[id^="page"]').id;
+            validateAndShowNext(pageId);
+          };
+        });
+      }
+      function showNext() {
+        const pages = [
+          "page1",
+          "pageInfrastructure",
+          "pageHospital",
+          "pageTransportation",
+          "pageEatery",
+          "pageSecurity",
+          "pageOther",
+        ];
+
+        let nextPage;
+
+        for (let i = 0; i < pages.length; i++) {
+          if (!filledPages.has(pages[i])) {
+            nextPage = pages[i];
+            break;
+          }
+        }
+
+        pages.forEach((pageId) => {
+          document.getElementById(pageId).classList.add("hidden");
+        });
+
+        if (nextPage) {
+          document.getElementById(nextPage).classList.remove("hidden");
+          currentPage = nextPage;
+        } else {
+          document.getElementById("submitPage").classList.remove("hidden");
+          document
+            .querySelectorAll('button[type="button"]')
+            .forEach((button) => {
+              button.onclick = function () {
+                const pageId = this.closest('div[id^="page"]').id;
+                validateAndShowNext(pageId);
+              };
+            });
+        }
+      }
+
+      document
+        .getElementById("feedbackForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var fileInputs = [
+            document.getElementById("infraSupporting"),
+            document.getElementById("eaterySupporting"),
+            document.getElementById("otherSupporting"),
+            document.getElementById("securitySupporting"),
+            document.getElementById("transportationSupporting"),
+            document.getElementById("hospitalSupporting"),
+          ];
+
+          var uploadedFiles = [];
+
+          var uploadPromises = fileInputs.map(function (fileInput) {
+            var file = fileInput.files[0];
+
+            if (file) {
+              var formData = new FormData();
+              formData.append("file", file);
+              formData.append("upload_preset", "docsfile");
+              formData.append("api_key", "662459726783117");
+
+              return fetch(
+                "https://api.cloudinary.com/v1_1/YOUR_CLOUD_NAME/auto/upload",
+                {
+                  method: "POST",
+                  body: formData,
+                }
+              )
+                .then(function (response) {
+                  return response.json();
+                })
+                .then(function (result) {
+                  if (result.error) {
+                    console.error(
+                      "Upload failed for file:",
+                      file.name,
+                      result.error.message
                     );
-                    if (firstEmptyField) {
-                        firstEmptyField.focus();
-                    }
-                    // Reset the facility dropdown
-                    document.getElementById("facility").value = "";
-                    return;
-                }
-
-                const pages = [
-                    "page1",
-                    "pageInfrastructure",
-                    "pageHospital",
-                    "pageTransportation",
-                    "pageEatery",
-                    "pageSecurity",
-                    "pageOther",
-                ];
-
-                pages.forEach((pageId) => {
-                    document.getElementById(pageId).classList.add("hidden");
+                  } else {
+                    uploadedFiles.push(result.secure_url); // Store the URL of the uploaded file
+                  }
+                })
+                .catch(function (error) {
+                  console.error("Error uploading file:", file.name, error);
                 });
-
-                filledPages.clear();
-                filledPages.add("page1");
-
-                switch (facility) {
-                    case "Infrastructure":
-                        showPage("pageInfrastructure");
-                        break;
-                    case "Hospital":
-                        showPage("pageHospital");
-                        break;
-                    case "Transportation":
-                        showPage("pageTransportation");
-                        break;
-                    case "Eatery":
-                        showPage("pageEatery");
-                        break;
-                    case "Security":
-                        showPage("pageSecurity");
-                        break;
-                    case "Other":
-                        showPage("pageOther");
-                        break;
-                    default:
-                        showPage("page1");
-                }
+            } else {
+              // If no file, return a resolved promise to keep the Promise.all going
+              return Promise.resolve();
             }
-            function validateAndShowNext(pageId) {
-                const page = document.getElementById(pageId);
-                const requiredInputs = page.querySelectorAll(
-                    "input[required], select[required], textarea[required]",
+          });
+
+          // Wait for all uploads to complete
+          Promise.all(uploadPromises).then(function () {
+            // Optional: Log the uploaded file URLs
+            console.log("Uploaded file URLs:", uploadedFiles);
+
+            // Your existing logic to submit the rest of the form goes here
+          });
+
+          var formData = new FormData(this);
+          var jsonData = {};
+          formData.forEach(function (value, key) {
+            jsonData[key] = value;
+          });
+
+          fetch(
+            "https://script.google.com/macros/s/AKfycbwSdXNwpAUtN_LFO-7wmpR6EDzwgtignE2iwoMi0JQxBHUOpfhU8FDSTvtmXOsBaIESkA/exec",
+            {
+              method: "POST",
+              body: JSON.stringify(jsonData),
+            }
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.result === "success") {
+                alert("Form submitted successfully!");
+                document.getElementById("feedbackForm").reset();
+              } else {
+                alert(
+                  "There was an error submitting the form. Please try again."
                 );
-                let allFilled = true;
-                let firstEmptyField = null;
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert(
+                "There was an error submitting the form. Please try again."
+              );
+            });
+        });
 
-                requiredInputs.forEach((input) => {
-                    if (!input.value.trim()) {
-                        allFilled = false;
-                        if (!firstEmptyField) {
-                            firstEmptyField = input;
-                        }
-                        input.classList.add("error");
-                    } else {
-                        input.classList.remove("error");
-                    }
-                });
-
-                if (allFilled) {
-                    filledPages.add(pageId);
-                    currentPage = pageId;
-                    showNext();
-                } else {
-                    alert("Please fill out all required fields.");
-                    if (firstEmptyField) {
-                        firstEmptyField.focus();
-                    }
-                }
-            }
-            function showNext() {
-                const pages = [
-                    "page1",
-                    "pageInfrastructure",
-                    "pageHospital",
-                    "pageTransportation",
-                    "pageEatery",
-                    "pageSecurity",
-                    "pageOther",
-                ];
-
-                let nextPage;
-
-                for (let i = 0; i < pages.length; i++) {
-                    if (!filledPages.has(pages[i])) {
-                        nextPage = pages[i];
-                        break;
-                    }
-                }
-
-                pages.forEach((pageId) => {
-                    document.getElementById(pageId).classList.add("hidden");
-                });
-
-                if (nextPage) {
-                    document
-                        .getElementById(nextPage)
-                        .classList.remove("hidden");
-                    currentPage = nextPage;
-                } else {
-                    document
-                        .getElementById("submitPage")
-                        .classList.remove("hidden");
-                    document
-                        .querySelectorAll('button[type="button"]')
-                        .forEach((button) => {
-                            button.onclick = function () {
-                                const pageId =
-                                    this.closest('div[id^="page"]').id;
-                                validateAndShowNext(pageId);
-                            };
-                        });
-                }
-            }
-
-            document
-                .getElementById("feedbackForm")
-                .addEventListener("submit", function (event) {
-                    event.preventDefault();
-                    var formData = new FormData(this);
-                    var jsonData = {};
-                    formData.forEach(function (value, key) {
-                        jsonData[key] = value;
-                    });
-
-                    fetch(
-                        "https://script.google.com/macros/s/AKfycbwSdXNwpAUtN_LFO-7wmpR6EDzwgtignE2iwoMi0JQxBHUOpfhU8FDSTvtmXOsBaIESkA/exec",
-                        {
-                            method: "POST",
-                            body: JSON.stringify(jsonData),
-                        },
-                    )
-                        .then((response) => response.json())
-                        .then((data) => {
-                            if (data.result === "success") {
-                                alert("Form submitted successfully!");
-                                document.getElementById("feedbackForm").reset();
-                            } else {
-                                alert(
-                                    "There was an error submitting the form. Please try again.",
-                                );
-                            }
-                        })
-                        .catch((error) => {
-                            console.error("Error:", error);
-                            alert(
-                                "There was an error submitting the form. Please try again.",
-                            );
-                        });
-                });
-
-            function handleResponse(data) {
-                if (data.result === "success") {
-                    alert("Form submitted successfully!");
-                    document.getElementById("feedbackForm").reset();
-                } else {
-                    alert(
-                        "There was an error submitting the form. Please try again.",
-                    );
-                }
-            }
-        </script>
-    </body>
+      function handleResponse(data) {
+        if (data.result === "success") {
+          alert("Form submitted successfully!");
+          document.getElementById("feedbackForm").reset();
+        } else {
+          alert("There was an error submitting the form. Please try again.");
+        }
+      }
+    </script>
+  </body>
 </html>
