@@ -493,7 +493,6 @@
       function handleFacilityChange() {
         const facility = document.getElementById("facility").value;
 
-        // First, validate the root page fields
         const rootPageInputs = document.querySelectorAll(
           "#page1 input[required], #page1 select[required]"
         );
@@ -519,7 +518,7 @@
           if (firstEmptyField) {
             firstEmptyField.focus();
           }
-          // Reset the facility dropdown
+
           document.getElementById("facility").value = "";
           return;
         }
@@ -638,7 +637,6 @@
           "pageSecurity",
         ];
 
-        // Fill all unfilled required fields with "-"
         pages.forEach((pageId) => {
           if (!filledPages.has(pageId)) {
             const page = document.getElementById(pageId);
@@ -654,12 +652,10 @@
           }
         });
 
-        // Hide all pages except "pageOther"
         pages.forEach((pageId) => {
           document.getElementById(pageId).classList.add("hidden");
         });
 
-        // Show "pageOther"
         const pageOther = document.getElementById("pageOther");
         if (pageOther) {
           pageOther.classList.remove("hidden");
@@ -793,24 +789,19 @@
                       result.error.message
                     );
                   } else {
-                    uploadedFiles.push(result.secure_url); // Store the URL of the uploaded file
+                    uploadedFiles.push(result.secure_url);
                   }
                 })
                 .catch(function (error) {
                   console.error("Error uploading file:", file.name, error);
                 });
             } else {
-              // If no file, return a resolved promise to keep the Promise.all going
               return Promise.resolve();
             }
           });
 
-          // Wait for all uploads to complete
           Promise.all(uploadPromises).then(function () {
-            // Optional: Log the uploaded file URLs
             console.log("Uploaded file URLs:", uploadedFiles);
-
-            // Your existing logic to submit the rest of the form goes here
           });
 
           var formData = new FormData(this);
