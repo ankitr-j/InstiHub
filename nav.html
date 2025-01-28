@@ -202,8 +202,17 @@
         display: none;
       }
       .nav-first .first span{
-      top: 40px;
-    }
+        top: 40px;
+      }
+      /* Mobile-specific styles for complaint button */
+      .nav-first .first .complaint-btn {
+        position: absolute;
+        top: 90px !important;  /* Force position below help button */
+        right: 20px !important;  /* Force alignment with help button */
+        width: 80px;
+        margin: 0;
+        text-align: center;
+      }
       .nav-first .first{
         background-color: transparent;
       }
@@ -234,6 +243,21 @@
       bottom: 25px;
     }
   
+    /* Base styles for complaint button */
+    .nav-first .first .complaint-btn {
+      position: absolute;
+      top: 30px;
+      width: 80px;
+      text-align: center;
+      display: block;
+      background: #6B63B5;
+      font-size: 13px;
+      right: 130px;  /* Increased spacing from help button */
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: .2s ease-in;
+    }
   </style>
   
   <div class="hamburger">
@@ -262,7 +286,8 @@
     <div class="nav">
       <div class="first">
       <a href="index.html"><img src="img/logo.png"></a>
-      <span><a href="help.html" >HELP</a></span>
+      <span class="complaint-btn"><a href="feedback.html">COMPLAINT</a></span>
+      <span><a href="help.html">HELP</a></span>
     </div>
     <div class="second">
       <ul>
