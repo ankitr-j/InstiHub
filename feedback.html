@@ -42,12 +42,12 @@
 
       .feedback-container {
         padding: 1rem;
-        background-color: rgba(255, 255, 255, 0.7);
+        background-color: #04040475;
         border-radius: 20px;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        width: 90%;
+        width: 70%;
         max-width: 1000px;
-        height: 90vh;
+        height: full;
         display: flex;
         flex-direction: column;
         overflow: hidden;
@@ -72,8 +72,8 @@
         padding: 25px;
         text-align: center;
         border: 2px solid #10141b;
-        border-radius: 6px;
-        box-shadow: 10px 10px 10px grey;
+        border-radius: 10px;
+        box-shadow: 10px 10px 10px rgb(0, 0, 0);
       }
 
       .feedback-header h2 {
@@ -94,7 +94,7 @@
         display: block;
         margin: 15px 0 5px;
         font-weight: 600;
-        color: #333;
+        color: #888585;
         transition: color 0.3s ease;
       }
 
@@ -108,7 +108,7 @@
         border-radius: 8px;
         font-size: 16px;
         transition: all 0.3s ease;
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: #00000001;
       }
 
       .feedback-container input:focus,
@@ -233,18 +233,19 @@
         <!-- Page 1 -->
         <div id="page1">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
+          <input type="text" id="name" placeholder="Enter Your Name Here" name="name" required />
 
           <label for="rollNumber">Roll Number</label>
-          <input type="text" id="rollNumber" name="rollNumber" required />
+          <input type="text" placeholder="Enter Your Roll Number Here"  id="rollNumber" name="rollNumber" required />
 
           <label for="mobileNumber">Mobile Number</label>
-          <input type="text" id="mobileNumber" name="mobileNumber" required />
+          <input type="text" placeholder="Enter Your Mobile Number Here"  id="mobileNumber" name="mobileNumber" required />
 
           <label for="facility">Facility</label>
           <select
             id="facility"
             name="facility"
+          
             required
             onchange="handleFacilityChange()"
           >
